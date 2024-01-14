@@ -10,34 +10,30 @@ use Illuminate\Support\Facades\Hash;
 class PengumumanController extends Controller
 {
     //
-    public function index(Pengumuman $infoModel)
+    public function index(Pengumuman $pengumuman)
     {
-        $infos = $infoModel->get();
+        $infos = $pengumuman->get();
 
         return view('pages.info.index')
             ->with('infos', $infos);
     }
 
-    public function create()
-    {
-        return view('pages.info.add');
-    }
+    // public function create()
+    // {
+    //     return view('pages.info.add');
+    // }
 
-    public function store(Request $request)
+    public function store(Request $request, Pengumuman $pengumuman)
     {
         $request->validate([
             'TanggalInfo' => 'nullable',
             'IsiInfo' => 'required',
         ]);
 
-        DB::insert(
-            'INSERT INTO pengumuman(TanggalInfo, IsiInfo) VALUES (?, ?)',
-            [
-                $request->TanggalInfo,
-                $request->IsiInfo
-            ]
-        );
-
+        $pengumuman->create([
+            'TanggalInfo' => $request->TanggalInfo,
+            'IsiInfo' => $request->IsiInfo,
+        ]);
 
         return redirect()->route('pages.info.index')->with('success', 'Data berhasil disimpan');
     }

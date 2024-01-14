@@ -34,7 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/doswal', [DoswalController::class, 'index'])->name('doswal.index');
     
     Route::get('/info', [PengumumanController::class, 'index'])->name('pages.info.index');
-    Route::get('/info/add', [PengumumanController::class, 'create'])->name('pages.info.add');
+    // Route::get('/info/add', [PengumumanController::class, 'create'])->name('pages.info.add');
     Route::post('/info/store', [PengumumanController::class, 'store'])->name('pages.info.store');
 
     Route::get('/perwalian', [PerwalianController::class, 'index'])->name('pages.perwalian.index');

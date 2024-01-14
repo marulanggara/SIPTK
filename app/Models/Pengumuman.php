@@ -10,4 +10,7 @@ class Pengumuman extends Model
     use HasFactory;
 
     protected $table = 'pengumuman';
+    protected $fillable = ['TanggalInfo', 'IsiInfo'];
+    public $timestamps = false; // Sesuaikan berdasarkan kebutuhan Anda
+    protected $primaryKey = 'IdInfo'; // Sesuaikan dengan nama kolom primary key
 }

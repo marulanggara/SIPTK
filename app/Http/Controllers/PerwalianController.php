@@ -22,7 +22,7 @@ class PerwalianController extends Controller
         return view('pages.perwalian.add');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Perwalian $perwalianModel)
     {
         $request->validate([
             'NamaMaha' => 'required',
@@ -30,29 +30,27 @@ class PerwalianController extends Controller
             'Semester' => 'required',
             'JumlahSks' => 'required',
             'Ipk' => 'required',
-            'TanggalPerwalian' => 'nullable',
+            'TanggalPerwalian' => 'nullable|date',
             'NoWa' => 'required',
             'NamaDoswal' => 'required',
             'Masalah' => 'required',
-            'Rekomendasi'=> 'nullable'
-
-
+            'uraian' => 'required|in:Awal Semester, Sebelum UTS, Sebelum UAS',
+            'Rekomendasi' => 'nullable'
         ]);
 
-        DB::insert('INSERT INTO perwalian(NamaMaha, NimMaha, Semester, JumlahSks, Ipk, TanggalPerwalian, NoWa, NamaDoswal, Masalah, Rekomendasi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
-        [
-            $request->NamaMaha,
-            $request->NimMaha,
-            $request->Semester,
-            $request->JumlahSks,
-            $request->Ipk,
-            date("Y-m-d"), // Add the closing parenthesis for date() function
-            $request->NoWa,
-            $request->NamaDoswal,
-            $request->Masalah,
-            $request->Rekomendasi
+        $perwalianModel->create([
+            'NamaMaha' => $request->NamaMaha,
+            'NimMaha' => $request->NimMaha,
+            'Semester' => $request->Semester,
+            'JumlahSks' => $request->JumlahSks,
+            'Ipk' => $request->Ipk,
+            'TanggalPerwalian' => $request->TanggalPerwalian,
+            'NoWa' => $request->NoWa,
+            'NamaDoswal' => $request->NamaDoswal,
+            'Masalah' => $request->Masalah,
+            'uraian' => $request->uraian,
+            'Rekomendasi' => $request->Rekomendasi,
         ]);
-
 
         return redirect()->route('pages.perwalian.index')->with('success', 'Data berhasil disimpan');
     }
