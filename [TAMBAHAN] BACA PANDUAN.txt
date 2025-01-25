@@ -1,0 +1,44 @@
+----LANGKAH-LANGKAH----
+-----------------------
+
+1. Buka folder SIPTK sampai terlihat 2 folder : backend dan frontend
+2. ketik cmd di directory lokasi bagian atas
+3. ketik "code ." lalu enter
+--- JANGAN LUPA AKTIFIN XAMPP dan download DB nya lalu import ke DB
+	
+4. di VS Code akan terlihat terdapat 2 folder yaitu backend dan frontend
+5. buka 2 terminal
+
+** terminal 1 - Backend
+- ketik cd backend 
+- instal hal yang diperlukan :
+	npm install express mysql2 dotenv cors multer bodyParser xlsx bcrypt
+	install juga jwt
+- ubah pada bagian file .env sesuaikan dengan db kalian
+- jika sudah -> npm start
+NOTE : Jika ada error copas aja tanya ke gpt, lupa yang perlu diinstall apa aja
+
+** terminal 2 - Frontend
+- ketik cd frontend
+- install yg diperlukan :
+	npm install
+	npm install axios
+	install react bootstrap
+	npm install jspdf
+	npm install jspdf-autotable
+	npm install react-qr-code
+- jika sudah -> npm start
+NOTE : Jika ada error copas aja tanya ke gpt, lupa yang perlu diinstall apa aja
+
+6. Tes semua fungsi yang sudah dibuat : 
+	Tes login dengan mahasiswa yang memiliki semester yang berbeda dari semester (1, 3, 5, atau 7 salah satu aja gpp) sama yang selain semester itu
+
+Coba aja semua dari mahasiswa sampai admin kecuali yang import belum buat caranya kalo mau liat aja di file excel liat format nya jangan sampai ada data yang sama
+
+** Untuk username - password :
+1. dosen 	: NIP - dosen123
+2. admin 	: admin1 - admin123
+3. gpm 		: 2112 - gpm123
+4. mahasiswa	: NIM - mahasiswa123
+
+*NOTE : Kalo ada fitur yang error screenshot aja taruh drive
